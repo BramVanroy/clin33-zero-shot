@@ -32,3 +32,8 @@ is doing under the hood or not. Intermediate process is being saved so if the pr
 other errors, you should be able to just restart and it will continue where it left off. This is not ideal but that's
 how it is for now. (If you have the time, it is worthwhile to reimplement this querying with multiprocessing to greatly
 speed up the process.)
+
+## Citation
+
+If you use this code, please make sure to provide correct attribution. Code is licensed under GPLv3. If you use the code,
+it would also be kind to cite our upcoming work. I'll add needed citation information here when that work is available.
