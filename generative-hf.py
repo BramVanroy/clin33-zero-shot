@@ -94,13 +94,8 @@ def process_dataset(dataset: Dataset):
                 bnb_4bit_compute_dtype="bfloat16",
                 bnb_4bit_use_double_quant=True,
             )
-            model_kwargs = {
-                "quantization_config": bnb_config,
-                "trust_remote_code": True
-            }
-            model = models.transformers(
-                model_name, model_kwargs=model_kwargs, device="auto"
-            )
+            model_kwargs = {"quantization_config": bnb_config, "trust_remote_code": True}
+            model = models.transformers(model_name, model_kwargs=model_kwargs, device="auto")
 
             for use_template in USE_TEMPLATE:
                 pred_idxs = []
@@ -121,7 +116,9 @@ def process_dataset(dataset: Dataset):
                     pred_idxs.append(pred_idx)
 
                 f1 = f1_score(true_label_idxs, pred_idxs, average=F1_AVERAGE, labels=list(LABELS2IDX.values()))
-                result_str = f"F1 ({F1_AVERAGE}) score on {DATASET} with {model_name} (template={use_template}): {f1:.4f}"
+                result_str = (
+                    f"F1 ({F1_AVERAGE}) score on {DATASET} with {model_name} (template={use_template}): {f1:.4f}"
+                )
                 clf_report = classification_report(
                     true_label_idxs,
                     pred_idxs,

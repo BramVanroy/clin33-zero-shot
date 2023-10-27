@@ -68,7 +68,9 @@ def process_dataset(dataset: Dataset):
                         num_retries -= 1
                         sleep(30)
                         # Handle API error here, e.g. retry or log
-                        print(f"OpenAI API returned an API Error ({num_retries} retries remaining for text #{review_idx:,}): {exc}")
+                        print(
+                            f"OpenAI API returned an API Error ({num_retries} retries remaining for text #{review_idx:,}): {exc}"
+                        )
                         continue
                     else:
                         pred_idx = LABELS2IDX[pred_label]
@@ -107,7 +109,6 @@ def process_dataset(dataset: Dataset):
         ]
     )
     df.to_csv(ppreds, sep="\t", encoding="utf-8", index=False)
-
 
 
 def get_dataset():
