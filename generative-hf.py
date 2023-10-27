@@ -148,7 +148,7 @@ def process_dataset(dataset: Dataset):
 
 
 def get_dataset():
-    dataset = load_dataset(DATASET, split=DATASET_SPLIT).select(range(100))
+    dataset = load_dataset(DATASET, split=DATASET_SPLIT)
 
     print(f"DATASET SIZE: {len(dataset):,}")
     for label, label_idx in LABELS2IDX.items():
