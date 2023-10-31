@@ -36,7 +36,7 @@ PROMPT = "Is het sentiment in de volgende Nederlandstalige boekrecensie positief
 
 def process_dataset(dataset: Dataset):
     true_label_idxs = dataset[LABEL_COLUMN]
-    pdout = Path("results/prompt")
+    pdout = Path("results/openai")
     pdout.mkdir(exist_ok=True, parents=True)
     with pdout.joinpath("openai_zero_shot_results.txt").open("a", encoding="utf-8") as fhout:
         model = models.openai.OpenAICompletion(
