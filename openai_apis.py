@@ -25,8 +25,8 @@ LABELS2IDX = {
     "positief": 1,
 }
 F1_AVERAGE = "macro"
-TEMPERATURE = 0.0
-MAX_TOKENS = 5
+TEMPERATURE = 1.0  # API default
+MAX_TOKENS = 20
 
 USE_TMP_FILE = True
 MODEL_NAME = "gpt-3.5-turbo"
