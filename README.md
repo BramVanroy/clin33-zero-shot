@@ -1,4 +1,4 @@
-# DBRD Zero Shot Classification
+# Zero Shot Classification Methods
 
 **Note this code base is not pretty or well documented. It's not user-friendly (change arguments in the files instead of from CLI), but it is what it is. Use at your own risk.**
 
