@@ -41,6 +41,10 @@ MODEL_ADD_PREFIX_SPACE = {
     "DTAI-KULeuven/robbertje-1-gb-merged": "Ġ",
 }
 TEMPLATE = "De volgende recensie is{}."
+
+# Rescaling will consider the default logit outputs when only using the prompt (`TEMPLATE`) for the labels. So, "what
+# is the default logit output for 'postive'" for instance. These "default biases" would then be subtracted from the
+# model outputs when actually making predictions before calculating the probabilities with softmax.
 USE_RESCALING = (True, False)
 
 
