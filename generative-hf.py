@@ -1,5 +1,7 @@
 import sys
 
+import torch
+
 if sys.version_info >= (3, 11):
     from enum import StrEnum
 else:
@@ -81,6 +83,7 @@ PROMPT = "Is het sentiment in de volgende Nederlandstalige boekrecensie positief
 USE_TEMPLATE = (True, False)
 
 
+@torch.inference_mode
 def process_dataset(dataset: Dataset):
     true_label_idxs = dataset[LABEL_COLUMN]
     pdout = Path("results/prompt")
@@ -147,7 +150,7 @@ def process_dataset(dataset: Dataset):
                 df.to_csv(ppreds, sep="\t", encoding="utf-8", index=False)
 
 
-def get_dataset():
+def get_dataset() -> Dataset:
     dataset = load_dataset(DATASET, split=DATASET_SPLIT)
 
     print(f"DATASET SIZE: {len(dataset):,}")

@@ -32,6 +32,7 @@ MODEL_NAMES = (
 TEMPLATE = "Deze recensie is {}."
 
 
+@torch.inference_mode
 def process_dataset(dataset: Dataset):
     true_label_idxs = dataset[LABEL_COLUMN]
     pdout = Path("results/nli")
